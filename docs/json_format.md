@@ -66,7 +66,7 @@ Suggested to addresses for the forward modal. When list is not empty, the To lab
 
 #### return_to_sender_address_options
 
-Suggested to addresses for the retur to sender modal. When list is not empty, the To label is replaced by a drop down menu.
+Suggested to addresses for the return to sender modal. When list is not empty, the To label is replaced by a drop down menu.
 
 #### selected_forward_addresses
 
