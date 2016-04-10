@@ -1,7 +1,37 @@
 # Intervention sample JSON
 
-```json
+## Minumum required
 
+This is the minimum required JSON to parse as a Customer Enquire. If you try this, you will see an error message saying "There were no enquiries or completions in this form.". To see something meaningful, add to the `questions` or `completion` properties. 
+
+```json
+{
+  "question_type": "customer_enquire",
+  "name": "",
+  "answered": false,
+  "role": "cloudtrade",
+  "reason": "",
+  "from_address": "something@something.com",
+  "return_to_sender": false,
+  "forward": false,
+  "unrecognised": false,
+  "junk": false,
+  "forward_address_options": [],
+  "return_to_sender_address_options": [],
+  "selected_forward_addresses": [],
+  "selected_return_to_sender_addresses":  [],
+  "return_to_sender_email_subject": "",
+  "forward_email_subject": "",
+  "return_to_sender_email_body": "",
+  "forward_email_body": "",
+  "questions": [],
+  "completion": {}
+}				
+```
+
+## Full sample
+
+```json
 {
   "question_type": "customer_enquire",
   "name": "myform",
@@ -248,5 +278,4 @@
   },
   "return_to_sender_address": "richard.develyn@gmail.com"
 }			
-
 ```
