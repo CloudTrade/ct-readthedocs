@@ -60,7 +60,27 @@ This is the minimum required JSON to parse as a Customer Enquire. If you try thi
 
 ### Table
 
+``` json
+{
+	"question_type": "table",
+	"headings": [
+		"Heading 1",
+		"Heading 2",
+		"Heading 3"
+	],
+	"rows": [ ... ]
+			
+}
+```
+
 #### Rows
+
+``` json
+{
+	"question_type": "table_row",
+	"cells": [ ... ]		
+}
+```
 
 #### Cells
 
