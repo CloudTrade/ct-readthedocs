@@ -28,11 +28,53 @@
 
 ### Properties
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+#### question_type
+
+Must be set to "customer_enquire". 
+
+#### answered 
+
+Will be set to true upon submission. Used by Gramatica to tell which Intervention was submitted when there are multiple roles.
+
+#### return_to_sender
+
+Will be set to true if Intervention has been submitted from the return to sender modal.
+
+#### forward 
+
+Will be set to true if Intervention has been submitted from the forward modal.
+
+#### unrecognised
+
+Will be set to true if Intervention has been submitted by pressing the unrecognised button.
+
+#### junk
+
+Will be set to true if Intervention has been submitted by pressing the junk button.
+
+#### reason
+
+Descriptive text will appear at the top of the data entry section.
+
+#### from_address
+
+Sets from address in email forms. Is not user editable.
+
+#### forward_address_options
+
+Suggested to addresses for the forward modal. When list is not empty, the To label is replaced by a drop down menu.
+
+#### return_to_sender_address_options
+
+Suggested to addresses for the retur to sender modal. When list is not empty, the To label is replaced by a drop down menu.
+
+#### selected_forward_addresses
+
+Addresses to email to when submitting from the forward modal. User editable.
+
+#### selected_return_to_sender_addresses
+
+Addresses to email to when submitting from the return to sender modal. User editable.
 
 
 
