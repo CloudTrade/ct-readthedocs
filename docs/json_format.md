@@ -1,15 +1,14 @@
 # Intervention sample JSON
 
-## Minumum required 
+## Top level 
 
 ```json
 {
 	"question_type": "customer_enquire",
-	"name": "",
 	"answered": false,
 	"role": "cloudtrade",
 	"reason": "",
-	"from_address": "something@something.com",
+	"from_address": "",
 	"return_to_sender": false,
 	"forward": false,
 	"unrecognised": false,
@@ -26,6 +25,16 @@
 	"completion": { ... }
 }				
 ```
+
+### Properties
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+
 
 ## Questions
 
