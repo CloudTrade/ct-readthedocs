@@ -26,56 +26,71 @@
 }				
 ```
 
-### Properties
+#### Properties
 
-#### question_type
+##### question_type
 
 Must be set to "customer_enquire". 
 
-#### answered 
+##### answered 
 
 Will be set to true upon submission. Used by Gramatica to tell which Intervention was submitted when there are multiple roles.
 
-#### return_to_sender
+##### return_to_sender
 
 Will be set to true if Intervention has been submitted from the return to sender modal.
 
-#### forward 
+##### forward 
 
 Will be set to true if Intervention has been submitted from the forward modal.
 
-#### unrecognised
+##### unrecognised
 
 Will be set to true if Intervention has been submitted by pressing the unrecognised button.
 
-#### junk
+##### junk
 
 Will be set to true if Intervention has been submitted by pressing the junk button.
 
-#### reason
+##### reason
 
 Descriptive text will appear at the top of the data entry section.
 
-#### from_address
+##### from_address
 
 Sets from address in email forms. Is not user editable.
 
-#### forward_address_options
+##### forward_address_options
 
 Suggested to addresses for the forward modal. When list is not empty, the To label is replaced by a drop down menu.
 
-#### return_to_sender_address_options
+##### return_to_sender_address_options
 
 Suggested to addresses for the return to sender modal. When list is not empty, the To label is replaced by a drop down menu.
 
-#### selected_forward_addresses
+##### selected_forward_addresses
 
 Addresses to email to when submitting from the forward modal. User editable.
 
-#### selected_return_to_sender_addresses
+##### selected_return_to_sender_addresses
 
 Addresses to email to when submitting from the return to sender modal. User editable.
 
+##### return_to_sender_email_subject
+
+Subject for email when submitting from the return to sender modal. User editable.
+
+##### forward_email_subject
+
+Subject for email when submitting from the forward modal. User editable.
+
+##### return_to_sender_email_body
+
+Body for email when submitting from the return to sender modal. User editable.
+
+##### forward_email_body
+
+Body for email when submitting from the forward modal. User editable.
 
 
 ## Questions
@@ -90,6 +105,8 @@ Addresses to email to when submitting from the return to sender modal. User edit
 	"id": "question_01"
 }
 ```
+
+#### Properties
 
 ### Drop down box
 

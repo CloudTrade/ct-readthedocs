@@ -6,7 +6,7 @@ Intervention sample JSON
 Top level 
 #########################################
 
-.. code-block:: json
+.. code-block:: guess
 	{
 		"question_type": "customer_enquire",
 		"answered": false,
