@@ -106,7 +106,7 @@ The text inside of the text box, editable by the user.
 Not used in the front end, can be used in rules to identify a question.
 
 ##### attributes
-Can be used to put custom html attributes on the text box. For more information see [here](/intervention_json_attributes.html).
+Can be used to put custom html attributes on the text box. For more information see [here](intervention_json_attributes.html).
 
 ### Drop down box
 
