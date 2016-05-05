@@ -86,14 +86,27 @@ Body for email when submitting from the forward modal. User editable.
 	"question_type": "text_box",
 	"text": "Question text goes here",
 	"value": "",
-	"id": "question_01"
+	"id": "question_01",
+	"attributes" : { ... }
 }
 ```
 
 #### Properties
 
 ##### question_type 
-Must be set as "text_box"
+Must be set as "text_box".
+
+##### text
+The label to be displayed to the left of the text box.
+
+##### value
+The text inside of the text box, editable by the user.
+
+##### id
+Not used in the front end, can be used in rules to identify a question.
+
+##### attributes
+Can be used to put custom html attributes on the text box. For more information see [here](/intervention_json_attributes.html).
 
 ### Drop down box
 
@@ -141,6 +154,7 @@ Must be set as "text_box"
 {
 	"question_type": "table_cell",
 	"editable": false,
-	"value": ""
+	"value": "",
+	"attributes": { ... }
 }
 
