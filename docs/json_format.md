@@ -116,6 +116,7 @@ The `"question_type"` property must be set to `"table_row"`. The `"cells"` array
 	"value": "",
 	"attributes": { ... }
 }
+```
 
 Cells with `"editable"` set to `false` will display the value as normal text, cells with `"editable"` set to `false` will render a text box with `"value"` set to the contents of the text box. Attributes are only applied if `"editable"` is set to `true`. Click [here](#Attributes) for attributes documentation.
 
