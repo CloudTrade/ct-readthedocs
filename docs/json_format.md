@@ -58,7 +58,7 @@ The `"questions"` array takes objects in the following formats.
 }
 ```
 
-The `"question_type"` property must be set to `"text_box"` to render a text box. The `"text"` property specifies the label that will be displayed to the left of the text box. The `"value"` property will be updated when a user enters text into the text box. It can be prepopulated by the rules writer. The `"id"` field isn't used in the front end, but provides a means of finding a question again for the rules writer. Click [here](#Attributes) for attributes documentation.
+The `"question_type"` property must be set to `"text_box"` to render a text box. The `"text"` property specifies the label that will be displayed to the left of the text box. The `"value"` property will be updated when a user enters text into the text box. It can be prepopulated by the rules writer. The `"id"` field isn't used in the front end, but provides a means of finding a question again for the rules writer. Click [here](#attributes) for attributes documentation.
 
 ### Drop down box
 
@@ -118,7 +118,7 @@ The `"question_type"` property must be set to `"table_row"`. The `"cells"` array
 }
 ```
 
-Cells with `"editable"` set to `false` will display the value as normal text, cells with `"editable"` set to `false` will render a text box with `"value"` set to the contents of the text box. Attributes are only applied if `"editable"` is set to `true`. Click [here](#Attributes) for attributes documentation.
+Cells with `"editable"` set to `false` will display the value as normal text, cells with `"editable"` set to `false` will render a text box with `"value"` set to the contents of the text box. Attributes are only applied if `"editable"` is set to `true`. Click [here](#attributes) for attributes documentation.
 
 
 ## Attributes 
@@ -132,7 +132,10 @@ So far, attributes that we've looked at and have some level of confidence in are
 ### Date pickers
 
 ``` json
-"type": "date"
+{
+	"type": "date"
+	...
+}
 ```
 
 Makes a date picker. Works in Chrome and Edge out of the box, we've added IE support, we thought it worked in Firefox out of the box but we've had reports of it not working inside tables in Firefox.
@@ -140,7 +143,10 @@ Makes a date picker. Works in Chrome and Edge out of the box, we've added IE sup
 ### Required fields
 
 ``` json
-"required": "required"
+{
+	"required": "required"
+	...
+}
 ```
 
 Will prevent submission of the form if the field is empty. We believe it works in all browsers.
@@ -148,7 +154,10 @@ Will prevent submission of the form if the field is empty. We believe it works i
 ### Placeholder text
 
 ``` json
-"placeholder": "text goes here"
+{
+	"placeholder": "text goes here"
+	...
+}
 ```
 
 Will display this text inside the text box in light grey when the text box is empty.
