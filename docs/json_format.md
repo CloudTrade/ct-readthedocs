@@ -33,9 +33,11 @@ The `"question_type"` property must be set to `"customer_enquire"`. This is just
 All of the arrays take strings, except for `"questions"`. For example:
 
 ```json
-...
-"forward_address_options": ["1@example.com", "2@example.com"], 
-...
+{
+	...
+	"forward_address_options": ["1@example.com", "2@example.com"], 
+	...
+}
 ```
 
 `"answered"`, `"return_to_sender"`, `"forward"`, `"unrecognised"` and `"junk"` should all be initially set to false. When a form is submitted, `"answered"` will be set to `true` to inform Gramatica which form was submitted in the case that there are forms set up for multiple roles. If the form is submitted using the one of the buttons other than submit, the appropriate property will also be set to `true`.
@@ -133,7 +135,8 @@ So far, attributes that we've looked at and have some level of confidence in are
 
 ``` json
 {
-	"type": "date"
+	...
+	"type": "date",
 	...
 }
 ```
@@ -144,7 +147,8 @@ Makes a date picker. Works in Chrome and Edge out of the box, we've added IE sup
 
 ``` json
 {
-	"required": "required"
+	...
+	"required": "required",
 	...
 }
 ```
@@ -155,7 +159,8 @@ Will prevent submission of the form if the field is empty. We believe it works i
 
 ``` json
 {
-	"placeholder": "text goes here"
+	...
+	"placeholder": "text goes here",
 	...
 }
 ```
