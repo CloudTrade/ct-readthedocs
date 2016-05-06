@@ -1,4 +1,4 @@
-# Intervention sample JSON
+# Customer Enquire sample JSON
 
 ## Top level 
 
@@ -26,58 +26,25 @@
 }				
 ```
 
-#### Properties
+All properties must exist for the form to validate correctly. The same applies to all of the JSON examples below. 
 
-##### question_type
-Must be set to "customer_enquire". 
+The `"question_type"` property must be set to `"customer_enquire"`. This is just for future proofing, in case we want to add more forms. 
 
-##### answered 
-Will be set to true upon submission. Used by Gramatica to tell which Intervention was submitted when there are multiple roles.
+All of the arrays take strings, except for `"questions"`. For example:
 
-##### return_to_sender
-Will be set to true if Intervention has been submitted from the return to sender modal.
+```json
+...
+"forward_address_options": ["1@example.com", "2@example.com"], 
+...
+```
 
-##### forward 
-Will be set to true if Intervention has been submitted from the forward modal.
+`"answered"`, `"return_to_sender"`, `"forward"`, `"unrecognised"` and `"junk"` should all be initially set to false. When a form is submitted, `"answered"` will be set to `true` to inform Gramatica which form was submitted in the case that there are forms set up for multiple roles. If the form is submitted using the one of the buttons other than submit, the appropriate property will also be set to `true`.
 
-##### unrecognised
-Will be set to true if Intervention has been submitted by pressing the unrecognised button.
-
-##### junk
-Will be set to true if Intervention has been submitted by pressing the junk button.
-
-##### reason
-Descriptive text will appear at the top of the data entry section.
-
-##### from_address
-Sets from address in email forms. Is not user editable.
-
-##### forward_address_options
-Suggested to addresses for the forward modal. When list is not empty, the To label is replaced by a drop down menu.
-
-##### return_to_sender_address_options
-Suggested to addresses for the return to sender modal. When list is not empty, the To label is replaced by a drop down menu.
-
-##### selected_forward_addresses
-Addresses to email to when submitting from the forward modal. User editable.
-
-##### selected_return_to_sender_addresses
-Addresses to email to when submitting from the return to sender modal. User editable.
-
-##### return_to_sender_email_subject
-Subject for email when submitting from the return to sender modal. User editable.
-
-##### forward_email_subject
-Subject for email when submitting from the forward modal. User editable.
-
-##### return_to_sender_email_body
-Body for email when submitting from the return to sender modal. User editable.
-
-##### forward_email_body
-Body for email when submitting from the forward modal. User editable.
-
+`"completion"` takes an object that David Thompson has defined. The documentation for that hasn't been written yet.
 
 ## Questions
+
+The `"questions"` array takes objects in the following formats.
 
 ### Text box
 
@@ -91,22 +58,7 @@ Body for email when submitting from the forward modal. User editable.
 }
 ```
 
-#### Properties
-
-##### question_type 
-Must be set as "text_box".
-
-##### text
-The label to be displayed to the left of the text box.
-
-##### value
-The text inside of the text box, editable by the user.
-
-##### id
-Not used in the front end, can be used in rules to identify a question.
-
-##### attributes
-Can be used to put custom html attributes on the text box. For more information see [here](intervention_json_attributes.html).
+The `"question_type"` property must be set to `"text_box"` to render a text box. The `"text"` property specifies the label that will be displayed to the left of the text box. The `"value"` property will be updated when a user enters text into the text box. It can be prepopulated by the rules writer. The `"id"` field isn't used in the front end, but provides a means of finding a question again for the rules writer. Click [here](#Attributes) for attributes documentation.
 
 ### Drop down box
 
@@ -124,6 +76,8 @@ Can be used to put custom html attributes on the text box. For more information 
 }
 ```
 
+The `question_type` property must be set to `drop_down_list` to render a drop down list. As with text boxes, `"text"` specifies the label and `"value"` stores the option selected by the user. It can be set by the rules writer to preselect an option. `"options"` specifies the options that the user can select from.
+
 ### Table
 
 ``` json
@@ -139,6 +93,9 @@ Can be used to put custom html attributes on the text box. For more information 
 }
 ```
 
+The `"question_type"` property must be set to `"table"` to render a table. The `"headings"` array takes strings, these specify the table's headings. The `"rows"` array takes objects of the format below. 
+
+
 #### Rows
 
 ``` json
@@ -147,6 +104,8 @@ Can be used to put custom html attributes on the text box. For more information 
 	"cells": [ ... ]		
 }
 ```
+
+The `"question_type"` property must be set to `"table_row"`. The `"cells"` array takes objects of the format below.
 
 #### Cells
 
@@ -157,4 +116,37 @@ Can be used to put custom html attributes on the text box. For more information 
 	"value": "",
 	"attributes": { ... }
 }
+
+Cells with `"editable"` set to `false` will display the value as normal text, cells with `"editable"` set to `false` will render a text box with `"value"` set to the contents of the text box. Attributes are only applied if `"editable"` is set to `true`. Click [here](#Attributes) for attributes documentation.
+
+
+## Attributes 
+
+For text boxes, both standard ones and those in tables, the properties of the attributes object get rendered as html attributes on the text box html element. This was implemented to provide an easy way of doing some simple validation, but it can be used to do all sorts of other things. See [here](http://www.w3schools.com/tags/tag_input.asp) and scroll to attributes for a list of input specific attributes. [Here]http://www.w3schools.com/tags/ref_attributes.asp) is a list of all html attributes, some of them will work too.
+
+Beware though, we've tested very few attributes, and some of them aren't fully supported by all browsers. So use cautiously. We may also implement a whitelist of allowed attributes at some point, so some attributes may stop working later.
+
+So far, attributes that we've looked at and have some level of confidence in are:
+
+``` json
+"type": "date"
+```
+
+Makes a date picker. Works in Chrome and Edge out of the box, we've added IE support, we thought it worked in Firefox out of the box but we've had reports of it not working inside tables in Firefox.
+
+``` json
+"required": "required"
+```
+
+Will prevent submission of the form if the field is empty. We believe it works in all browsers.
+
+``` json
+"placeholder": "text goes here"
+```
+
+Will display this text inside the text box in light grey when the text box is empty.
+
+If anyone wants this list extended, please shout.
+
+
 
