@@ -129,11 +129,15 @@ Beware though, we've tested very few attributes, and some of them aren't fully s
 
 So far, attributes that we've looked at and have some level of confidence in are:
 
+### Date pickers
+
 ``` json
 "type": "date"
 ```
 
 Makes a date picker. Works in Chrome and Edge out of the box, we've added IE support, we thought it worked in Firefox out of the box but we've had reports of it not working inside tables in Firefox.
+
+### Required fields
 
 ``` json
 "required": "required"
@@ -141,11 +145,15 @@ Makes a date picker. Works in Chrome and Edge out of the box, we've added IE sup
 
 Will prevent submission of the form if the field is empty. We believe it works in all browsers.
 
+### Placeholder text
+
 ``` json
 "placeholder": "text goes here"
 ```
 
 Will display this text inside the text box in light grey when the text box is empty.
+
+### Testing/implementing more attributes
 
 If anyone wants this list extended, please shout.
 
