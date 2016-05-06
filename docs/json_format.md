@@ -34,9 +34,7 @@ All of the arrays take strings, except for `"questions"`. For example:
 
 ```json
 {
-	...
-	"forward_address_options": ["1@example.com", "2@example.com"], 
-	...
+	"forward_address_options": ["1@example.com", "2@example.com"]
 }
 ```
 
@@ -129,15 +127,25 @@ For text boxes, both standard ones and those in tables, the properties of the at
 
 Beware though, we've tested very few attributes, and some of them aren't fully supported by all browsers. So use cautiously. We may also implement a whitelist of allowed attributes at some point, so some attributes may stop working later.
 
+You can use as many attributes as you like, although some might not play well with each other. 
+
+``` json
+{
+	"type": "date",
+	"required": "required",
+	"placeholder": "something"
+}
+```
+
+In that example, the placeholder text doesn't render in Chrome as the date picker overrides it, although it does display in IE.
+
 So far, attributes that we've looked at and have some level of confidence in are:
 
 ### Date pickers
 
 ``` json
 {
-	...
-	"type": "date",
-	...
+	"type": "date"
 }
 ```
 
@@ -147,9 +155,7 @@ Makes a date picker. Works in Chrome and Edge out of the box, we've added IE sup
 
 ``` json
 {
-	...
-	"required": "required",
-	...
+	"required": "required"
 }
 ```
 
@@ -159,9 +165,7 @@ Will prevent submission of the form if the field is empty. We believe it works i
 
 ``` json
 {
-	...
-	"placeholder": "text goes here",
-	...
+	"placeholder": "text goes here"
 }
 ```
 
