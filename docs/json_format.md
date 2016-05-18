@@ -87,6 +87,7 @@ The `question_type` property must be set to `drop_down_list` to render a drop do
 	"title": "The section title"
 	"questions": [ ... ]
 }
+```
 
 Sections can be used to group questions together. The `"questions"` array works just like the array in the `customer_enquire` JSON. This means that sections are infinitely nestable. Try not to go too crazy.
 
