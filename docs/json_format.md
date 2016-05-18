@@ -84,7 +84,7 @@ The `question_type` property must be set to `drop_down_list` to render a drop do
 ``` json
 {	
 	"question_type": "section",
-	"title": "The section title"
+	"title": "The section title",
 	"questions": [ ... ]
 }
 ```
