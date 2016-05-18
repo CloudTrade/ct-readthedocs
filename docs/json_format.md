@@ -138,10 +138,11 @@ Cells with `"editable"` set to `false` will display the value as normal text, ce
 ``` json 
 {
 	"question_type": "table_cell_drop_down_list",
-	"value":"Option 2",
-	"options":[
+	"value": "Option 2",
+	"options": [
 	  "Option 1",
-	  "Option 2"
+	  "Option 2",
+      "Option 3"  
 	]
 }
 ```
