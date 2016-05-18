@@ -8,6 +8,7 @@
 	"answered": false,
 	"role": "cloudtrade",
 	"reason": "",
+	"long_reason": "",
 	"from_address": "",
 	"return_to_sender": false,
 	"forward": false,
@@ -78,6 +79,17 @@ The `"question_type"` property must be set to `"text_box"` to render a text box.
 
 The `question_type` property must be set to `drop_down_list` to render a drop down list. As with text boxes, `"text"` specifies the label and `"value"` stores the option selected by the user. It can be set by the rules writer to preselect an option. `"options"` specifies the options that the user can select from.
 
+### Section
+
+``` json
+{	
+	"question_type": "section",
+	"title": "The section title"
+	"questions": [ ... ]
+}
+
+Sections can be used to group questions together. The `"questions"` array works just like the array in the `customer_enquire` JSON. This means that sections are infinitely nestable. Try not to go too crazy.
+
 ### Table
 
 ``` json
@@ -120,24 +132,49 @@ The `"question_type"` property must be set to `"table_row"`. The `"cells"` array
 
 Cells with `"editable"` set to `false` will display the value as normal text, cells with `"editable"` set to `false` will render a text box with `"value"` set to the contents of the text box. Attributes are only applied if `"editable"` is set to `true`. Click [here](#attributes) for attributes documentation.
 
+#### Dropdown cells
+
+``` json 
+{
+	"question_type": "table_cell_drop_down_list",
+	"value":"Option 2",
+	"options":[
+	  "Option 1",
+	  "Option 2"
+	]
+}
+```
+
+Very similar to drop down list questions. Just without the `"text"`.
+
+#### Popover cells
+
+``` json 
+{
+	"question_type": "table_cell_popover",
+	"text": "Put text here"
+}
+```
+
+Will display the word "Details" in the table, hovering shows the text specified in `"text"`.
 
 ## Attributes 
 
-For text boxes, both standard ones and those in tables, the properties of the attributes object get rendered as html attributes on the text box html element. This was implemented to provide an easy way of doing some simple validation, but it can be used to do all sorts of other things. See [here](http://www.w3schools.com/tags/tag_input.asp) and scroll to attributes for a list of input specific attributes. [Here]http://www.w3schools.com/tags/ref_attributes.asp) is a list of all html attributes, some of them will work too.
+All text boxes (not drop downs) have support for HTML attributes. We've not tested everything, and we may disable some things in future, so use cautiously.
 
-Beware though, we've tested very few attributes, and some of them aren't fully supported by all browsers. So use cautiously. We may also implement a whitelist of allowed attributes at some point, so some attributes may stop working later.
+If you want to explore the possibilities, you can read about HTML attributes [here](http://www.w3schools.com/tags/tag_input.asp) and [Here](http://www.w3schools.com/tags/ref_attributes.asp).
 
-You can use as many attributes as you like, although some might not play well with each other. 
+You can use as many attributes as you like, although some might override the functionality of others. For example, date pickers usually override placeholders. 
+
+Attributes are specified like this, where the property names are the desired attributes, and the values their values. Assign this object to the `"attributes"` property of text box or table cell questions.
 
 ``` json
 {
 	"type": "date",
 	"required": "required",
-	"placeholder": "something"
+	"placeholder": "some placeholder text"
 }
 ```
-
-In that example, the placeholder text doesn't render in Chrome as the date picker overrides it, although it does display in IE.
 
 So far, attributes that we've looked at and have some level of confidence in are:
 
@@ -158,6 +195,18 @@ Makes a date picker. Works in Chrome and Edge out of the box, we've added IE sup
 	"required": "required"
 }
 ```
+
+Will prevent submission of the form if the field is empty. Fields are coloured red until they contain a value, then green. We believe it works in all browsers.
+
+### Recommended fields
+
+``` json
+{
+	"recommended": "required"
+}
+```
+
+Not a standard HTML attribute, but we've implemented it. Will colour fields yellow until they contain a value, and then green. Won't prevent submission.
 
 Will prevent submission of the form if the field is empty. We believe it works in all browsers.
 

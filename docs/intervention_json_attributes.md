@@ -1,7 +1,8 @@
-# Intervention JSON attributes
 
-"attributes" : {
-	"type": "date",
-	"required": "required",
-	"placeholder": "text goes here"
-}
+
+
+			Something \n Something
+			
+			Something \n 
+			
+			Something
